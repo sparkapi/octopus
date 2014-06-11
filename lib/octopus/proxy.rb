@@ -262,7 +262,8 @@ class Octopus::Proxy
   end
 
   def should_clean_connection?(method)
-    method.to_s =~ /insert|select|execute/ && !@replicated && !self.block
+    #method.to_s =~ /insert|select|execute/ && !@replicated && !self.block
+    false
   end
 
   def should_send_queries_to_replicated_databases?(method)
