@@ -25,6 +25,7 @@ module Octopus
       end
 
       def octopus_shard
+        return {} if @config.nil?
         @config[:octopus_shard]
       end
 
