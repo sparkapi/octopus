@@ -128,6 +128,8 @@ module Octopus
           true
         elsif custom_octopus_connection
           !connection_proxy.block || !allowed_shard?(connection_proxy.current_shard)
+        elsif self.superclass.respond_to?(:custom_octopus_connection) 
+          self.superclass.custom_octopus_connection
         end
       end
 
