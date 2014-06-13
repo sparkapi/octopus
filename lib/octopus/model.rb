@@ -48,7 +48,10 @@ module Octopus::Model
 
     def hijack_connection()
       def self.should_use_normal_connection?
-        !Octopus.enabled? || self.custom_octopus_connection
+        !Octopus.enabled? || self.custom_octopus_connection || (
+          self.superclass.respond_to?(:custom_octopus_connection) && 
+          self.superclass.custom_octopus_connection
+        )
       end
 
       def self.connection_proxy
