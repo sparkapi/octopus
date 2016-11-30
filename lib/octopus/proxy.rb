@@ -328,6 +328,7 @@ module Octopus
     # Ensure that a single failing slave doesn't take down the entire application
     def with_each_healthy_shard
       @shards.each do |shard_name, v|
+        next if shard_name.to_s == "master"
         begin
           yield(v)
         rescue => e
