@@ -19,7 +19,7 @@ module Octopus
       end
 
       def octopus_shard
-        @config[:octopus_shard]
+        @config[:octopus_shard] if @config
       end
 
       def initialize(*args)
